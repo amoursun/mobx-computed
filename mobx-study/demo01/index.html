@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./log.js"></script>
+    <script src="./react.js"></script>
+    <script src="./react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <div id="log"></div>
+    <script type="text/babel">
+        ReactDOM.setStake(1)
+
+        function Text () {
+            const ref = React.useRef()
+
+            React.useEffect(() => {
+                const current = ref.current
+                const handle = () => {
+                        current.innerHTML = '我被点击了'
+                    }
+                if(current) {
+                    current.addEventListener('click', handle,false)
+                }
+                return () => {
+                    current.removeEventListener('click', handle)
+                }
+            },[])
+            return <span ref={ref}>--我是count小于3 展示</span>
+        }
+
+        function Count() {
+            const [count, setCount] = React.useState(1);
+            const handleClear = React.useCallback(()=> {
+                 if(window.clearLog) {
+                        window.clearLog();
+                    }
+            }, [])
+            React.useLayoutEffect(() => {
+                console.log('hellow useLayoutEffect')
+                return () => {
+                    console.log('bye useLayoutEffect')
+                }
+            },[])
+             React.useEffect(() => {
+                console.log('hello 小罗')
+                return () => {
+                    console.log('bye 小罗')
+                }
+            },[])
+            return <div>
+                        <button onClick={() => setCount(x => x - 1)}>-</button>
+                        <span>count：{count}</span>
+                        <button onClick={() => setCount(x => x + 1)}>+</button>
+                        <button onClick={handleClear}>清除日志</button>
+                       {count < 3 && <Text /> }
+                    </div>
+        }
+
+        function App() {
+            React.useEffect(() => {
+                console.log('hello 梅西')
+                return () => {
+                    console.log('hello 冠军')
+                }
+            }, [])
+            return <Count />
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+        );
+    </script>
+</body>
+
+
+<script src="./log_view.js"></script>
+
+</html>

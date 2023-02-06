@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="./log.js"></script>
+    <script src="./vue.js"></script>
+    
+</head>
+<body>
+    Hello Mobx
+    <button id="click">点击更新a</button>
+    <button id="clear">清除日志</button>
+     <div id="log"></div>
+     <div id="node"></div>
+
+</body>
+<script src="./mobx.umd.development.js"></script>
+<script>
+    const store = {
+        a: 1,
+        b: {
+            c: 1,
+            d: {
+                e: 1
+            }
+        },
+        ab: {
+            c: 1,
+            d: {
+                e: 1
+            }
+        },
+        setA (v) {
+            console.log(v)
+            this.a = v
+        },
+        get doubbleA() {
+            return this.a * 2
+        },
+        init() {
+            mobx.reaction(() => this.a, (a) => { // 7reaction这个观察者
+                console.log(a)
+            })
+            mobx.when(() => this.a > 3, () => { // 8when 这个观察者
+                console.log('when', this.a)
+            })
+        }
+    }
+    const s = mobx.makeObservable(store, {
+        a: mobx.observable, // 1普通的观察属性
+        setA: mobx.action, // 2 普通的action
+        doubbleA: mobx.computed, // 3计算属性
+        b: mobx.observable, // 4 observable.deep
+        ab: mobx.observable.shallow // 5 observable.shallow
+    })
+
+    s.init();
+
+    setTimeout(() => {
+        noder(s)
+    },1000)
+
+
+    mobx.autorun(() => { // 6 autorun 这个观察者
+         console.log( store.a)
+    })
+
+    mobx.autorun(() => { // 6 autorun 这个观察者
+         console.log( store.doubbleA)
+    })
+    const handle = () => {
+       store.setA(store.a + 1)
+        
+    }
+    const handleClear = () => {
+        window.clearLog()
+    }
+    document.querySelector('#click').addEventListener('click', handle, false)
+    document.querySelector('#clear').addEventListener('click', handleClear, false)
+   
+</script>
+
+
+<script src="./log_view.js"></script>
+<script src="./log_tree_node.js"></script>
+</html>

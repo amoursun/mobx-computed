@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="./log.js"></script>
+    <script src="./vue.js"></script>
+    
+</head>
+<body>
+    Hello Mobx
+    <button id="click">点击更新a</button>
+    <button id="clear">清除日志</button>
+     <div id="log"></div>
+     <div id="node"></div>
+
+</body>
+<script src="./mobx.umd.development.js"></script>
+<script>
+    const minStore = {
+        x: {
+            y: {
+                z: 1
+            }
+        }
+    }
+    const minS = mobx.makeObservable(minStore, {
+        x: mobx.observable,
+        // x: mobx.observable.shallow
+    });
+    logger('minStore', {minStore, minS});
+
+    const store = {
+        a: 1,
+        s: minStore,
+        b: {
+            c: 3
+        },
+    };
+    const s = mobx.makeObservable(store, {
+        a: mobx.observable,
+        b: mobx.observable,
+        s: mobx.observable
+    })
+
+    mobx.autorun(() => {
+         console.log('store.s', store.s)
+    })
+    mobx.autorun(() => {
+         console.log('store.b.c', store.b.c)
+    })
+    store.b = 77;
+    
+    const handle = () => {
+        
+    }
+    const handleClear = () => {
+        window.clearLog()
+    }
+    document.querySelector('#click').addEventListener('click', handle, false)
+    document.querySelector('#clear').addEventListener('click', handleClear, false)
+   
+</script>
+
+
+<script src="./log_view.js"></script>
+<script src="./log_tree_node.js"></script>
+</html>

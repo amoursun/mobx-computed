@@ -1,0 +1,79 @@
+.log-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    border-left: 1px solid #cfcfcf;
+    overflow-y: auto;
+}
+
+.log-info {
+ 
+}
+.log-sub-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+.log-title {
+   
+    padding: 0!important;
+
+    font-size: 18px;
+     font-weight: 500;
+    margin: 6px 0;
+}
+.log-info-info {
+    padding-left: 20px;
+    color: #999;
+}
+.log-obj-info {
+     padding-left: 20px;
+}
+.code {
+    white-space: break-spaces;
+    color: salmon;
+}
+.code-info {
+    margin-left: 20px;
+}
+.code-type {
+    padding: 4px;
+    font-size: 12px;
+    color: red;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+.dom-box {
+    color: yellowgreen;
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+     box-shadow: 0px 0px 8px 0px rgba(0,0,255, 0.15);
+}
+
+.fiber-box {
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 8px 0px rgba(0,255,0.15);
+}
+.hooks-box {
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 8px 0px rgba(255,0,0.15);
+}
+.sync-box {
+     width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 8px 0px rgba(255,0,255,0.55);
+}
+.default-box {
+    width: 500px;
+    margin: 2px 10px 2px 10px;
+    padding: 1px 20px;
+    /* border: 1px solid #ddd; */
+}

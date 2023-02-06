@@ -1,0 +1,138 @@
+.log-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    border-left: 1px solid #cfcfcf;
+    overflow-y: auto;
+}
+
+.log-info {
+ 
+}
+.log-sub-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+.log-title {
+   
+    padding: 0!important;
+
+    font-size: 18px;
+     font-weight: 500;
+    margin: 6px 0;
+}
+.log-info-info {
+    padding-left: 20px;
+    color: #999;
+}
+.log-obj-info {
+     padding-left: 20px;
+}
+.code {
+    white-space: break-spaces;
+    color: salmon;
+}
+.code-info {
+    margin-left: 20px;
+}
+.code-type {
+    padding: 4px;
+    font-size: 12px;
+    color: red;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+.setvalue-box {
+    color: yellowgreen;
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+     box-shadow: 0px 0px 8px 0px rgba(0,0,255, 0.15);
+}
+
+.computed-box {
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 8px 0px rgba(0,255,0.15);
+}
+.adm-box {
+    width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 8px 0px rgba(255,0,0.15);
+}
+.schdule-box {
+     width: 500px;
+    margin: 10px 20px 10px 10px;
+    padding: 10px 20px;
+    color: rgba(255,0,255,0.55)
+    /* box-shadow: 0px 0px 8px 0px rgba(255,0,255,0.55); */
+}
+.default-box {
+    width: 500px;
+    margin: 2px 10px 2px 10px;
+    padding: 1px 20px;
+    /* border: 1px solid #ddd; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.log-node {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    height: 700px;
+    background-color: beige;
+    border-left: 1px solid #cfcfcf;
+    overflow: auto;
+    /* margin-left: 300px; */
+}
+
+.node {
+    width: 80px;
+    height: 30px;
+
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 30px;
+    margin: 20px 5px;
+
+    font-size: 10px;
+}
+.tree-children {
+    display: flex;
+}
+.tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+
+}
+.svg-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.single-node {
+    color: red;
+    background: #dfdfdf
+}

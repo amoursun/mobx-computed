@@ -1,0 +1,6 @@
+/**/package.json
+website/**/*
+dist/
+docs/assets/
+*.yml
+coverage
